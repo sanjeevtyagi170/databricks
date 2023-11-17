@@ -5,7 +5,13 @@ import time
 
 # COMMAND ----------
 
+# pip install confluent_kafka
+
+# COMMAND ----------
+
 # dbutils.library.restartPython()
+# df=spark.read.json("dbfs:/FileStore/tables/invoices/invoices.json")
+# df=df.toPandas()
 
 # COMMAND ----------
 
@@ -31,7 +37,7 @@ class invoiceproducer:
 
     def produce_invoices(self,producer,counts):
         counter=0
-        with open("gs://rawdbrdata/datasets/invoices/invoices.json") as lines:
+        with open("/dbfs/FileStore/tables/invoices/invoices.json") as lines:
             for line in lines:
                 invoice=json.loads(line)
                 store_id=invoice['StoreID']
@@ -56,7 +62,7 @@ invoice_producer.start()
 
 # COMMAND ----------
 
-pwd
+
 
 # COMMAND ----------
 
