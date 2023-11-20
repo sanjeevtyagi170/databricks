@@ -5,16 +5,6 @@ import time
 
 # COMMAND ----------
 
-# pip install confluent_kafka
-
-# COMMAND ----------
-
-# dbutils.library.restartPython()
-# df=spark.read.json("dbfs:/FileStore/tables/invoices/invoices.json")
-# df=df.toPandas()
-
-# COMMAND ----------
-
 class invoiceproducer:
     def __init__(self):
         self.topic="invoices"
@@ -22,8 +12,8 @@ class invoiceproducer:
             'bootstrap.servers':'pkc-n3603.us-central1.gcp.confluent.cloud:9092',
             'security.protocol':'SASL_SSL',
             'sasl.mechanism':'PLAIN',
-            'sasl.username':'ZKP5URHC7O4FOIQK',
-            'sasl.password':'yMjcbjJvepEfTHVouAUlwFcjapvPtbjQxY+5fXto9hNpLwLOhvJTUjokNwROV5gN',
+            'sasl.username':'MWI4QIZ6IYPRG2IF',
+            'sasl.password':'C5REZQ79q4kjFPnhB4L5Yo/aK+xuhdMuM1TEGVyNFOLRpQgQrJ6lnCRYWejPPIKD',
             'client.id':'sanjeevmachine'
         }
     
