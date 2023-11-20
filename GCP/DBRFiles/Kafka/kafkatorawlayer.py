@@ -2,7 +2,7 @@
 class bronze:
     from pyspark.sql.functions import cast, from_json
     def __init__(self):
-        self.base_data_dir=""
+        self.base_data_dir="gs://rawdbrdata/raw/"
         self.bootstrap_server="pkc-n3603.us-central1.gcp.confluent.cloud:9092"
         self.jaas_module="org.apache.kafka.common.security.plain.PlainLoginModule"
         self.cluster_api_key='MWI4QIZ6IYPRG2IF'
@@ -45,8 +45,19 @@ class bronze:
                     ItemPrice double, ItemQty bigint, TotalValue double>>
             """
 
-        def process(self,):
-            pass
+        def process(self, startingTime = 1):
+        print(f"Starting Bronze Stream...", end='')
+        self.updatelibraries()
+        rawDF = self.ingestFromKafka(startingTime)
+        invoicesDF = self.getInvoices(rawDF)
+        sQuery =  ( invoicesDF.writeStream
+                            .queryName("bronze-ingestion")
+                            .option("checkpointLocation", f"{self.base_data_dir}/chekpoint/invoices_bz")
+                            .outputMode("append")
+                            .toTable("invoices_bz")           
+                    ) 
+        print("Done")
+        return sQuery  
 
 # COMMAND ----------
 
