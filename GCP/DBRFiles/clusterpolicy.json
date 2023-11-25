@@ -1,0 +1,36 @@
+{
+  "instance_pool_id": {
+    "type": "forbidden",
+    "hidden": true
+  },
+  "spark_version": {
+    "type": "allowlist",
+    "values": [
+      "13.3.x-scala2.12",
+      "12.2.x-scala2.12"
+    ]
+  },
+  "node_type_id": {
+    "type": "allowlist",
+    "values": [
+      "n1-standard-4",
+      "n1-standard-8",
+      "n1-standard-16"
+    ],
+    "defaultValue": "n1-standard-4"
+  },
+  "driver_node_type_id": {
+    "type": "fixed",
+    "value": "n1-standard-4",
+    "hidden": true
+  },
+  "autotermination_minutes": {
+    "type": "fixed",
+    "value": 20,
+    "hidden": true
+  },
+  "custom_tags.team": {
+    "type": "fixed",
+    "value": "product"
+  }
+}
