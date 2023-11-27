@@ -32,8 +32,8 @@ df=(
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC select _rescued_data:skills from test.testdb.autoloader_raw
+# %sql
+# select _rescued_data:skills from test.testdb.autoloader_raw
 
 # COMMAND ----------
 
