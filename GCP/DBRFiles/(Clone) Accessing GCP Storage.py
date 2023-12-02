@@ -1,5 +1,5 @@
 # Databricks notebook source
-# remove comments and paste it in the cluster initialization
+# remove comments and paste it in the cluster initialization  ##
 # spark.hadoop.google.cloud.auth.service.account.enable true
 # spark.hadoop.fs.gs.auth.service.account.email databricks501@studious-metric-405411.iam.gserviceaccount.com
 # spark.hadoop.fs.gs.project.id studious-metric-405411
